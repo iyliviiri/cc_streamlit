@@ -13,6 +13,18 @@ sia = SentimentIntensityAnalyzer()
 positive_color = "#32CD32"  # Vihreä
 negative_color = "#FF6347"  # Punainen
 
+# Määritä taustaväri
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #D2BE9F; /* Tässä voit vaihtaa taustavärin HEX-koodilla */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Otsikko
 st.title("Sentiment Analysis UI")
 
