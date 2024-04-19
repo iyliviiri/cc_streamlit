@@ -9,6 +9,10 @@ st.title("Welcome to app")
 nltk.download('vader_lexicon')  # Lataa sanakirja sentimenttianalyysiä varten
 sia = SentimentIntensityAnalyzer()
 
+# Määritä värit
+positive_color = "#32CD32"  # Vihreä
+negative_color = "#FF6347"  # Punainen
+
 # Otsikko
 st.title("Sentiment Analysis UI")
 
@@ -20,5 +24,8 @@ if st.button("Submit"):
     sentiment_scores = sia.polarity_scores(user_input)
     sentiment = "Positive" if sentiment_scores["compound"] > 0 else "Negative"
     
-    # Näytä tulos
-    st.write(f"Sentiment: {sentiment}")
+     # Määritä väri sentimentin perusteella
+    color = positive_color if sentiment == "Positive" else negative_color
+    
+    # Näytä tulos värillä
+    st.write(f"Sentiment: <span style='color:{color}'>{sentiment}</span>", unsafe_allow_html=True)
