@@ -17,8 +17,8 @@ negative_color = "#FF6347"  # Punainen
 st.markdown(
     """
     <style>
-    body {
-        background-color: #D2BE9F; /* Tässä voit vaihtaa taustavärin HEX-koodilla */
+    .reportview-container {
+        background: #f0f0f0; /* Tässä voit vaihtaa taustavärin HEX-koodilla */
     }
     </style>
     """,
