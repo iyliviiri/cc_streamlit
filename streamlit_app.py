@@ -24,8 +24,8 @@ if st.button("Submit"):
     sentiment_scores = sia.polarity_scores(user_input)
     sentiment = "Positive" if sentiment_scores["compound"] > 0 else "Negative"
     
-     # Määritä väri sentimentin perusteella
+    # Määritä väri sentimentin perusteella
     color = positive_color if sentiment == "Positive" else negative_color
     
     # Näytä tulos värillä
-    st.write(f"Sentiment: <span style='color:{color}'>{sentiment}</span>", unsafe_allow_html=True)
+    st.write(f"Input: {user_input} - Sentiment: <span style='color:{color}'>{sentiment}</span>", unsafe_allow_html=True)
