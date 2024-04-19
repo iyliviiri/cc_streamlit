@@ -14,16 +14,7 @@ positive_color = "#32CD32"  # Vihreä
 negative_color = "#FF6347"  # Punainen
 
 # Määritä taustaväri
-st.markdown(
-    """
-    <style>
-    .reportview-container {
-        background: #f0f0f0; /* Tässä voit vaihtaa taustavärin HEX-koodilla */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+backgroundColor = "#D2BE9F"
 
 # Otsikko
 st.title("Sentiment Analysis UI")
