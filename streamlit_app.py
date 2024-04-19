@@ -3,32 +3,27 @@ import pandas as pd
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 
-st.title("Welcome to app")
-
-# Alusta NLTK:n sentimenttianalysaattori
-nltk.download('vader_lexicon')  # Lataa sanakirja sentimenttianalyysiä varten
+# Initialize NLTK's sentiment analyzer
+nltk.download('vader_lexicon')  # Download dictionary for sentiment analysis
 sia = SentimentIntensityAnalyzer()
 
-# Määritä värit
-positive_color = "#32CD32"  # Vihreä
-negative_color = "#FF6347"  # Punainen
+# Assign colors to the response
+positive_color = "#32CD32"  # green
+negative_color = "#FF6347"  # red
 
-# Määritä taustaväri
-backgroundColor = "#D2BE9F"
-
-# Otsikko
+# Title
 st.title("Sentiment Analysis UI")
 
-# Lomake syötteen ottamiseksi
+# Form to take input
 user_input = st.text_input("Enter your sentence here:")
 
-# Analysoi sentimentti, kun käyttäjä lähettää syötteen
+# Analyze the sentiment when a user submits a feed
 if st.button("Submit"):
     sentiment_scores = sia.polarity_scores(user_input)
     sentiment = "Positive" if sentiment_scores["compound"] > 0 else "Negative"
     
-    # Määritä väri sentimentin perusteella
+    # Define color based on sentiment
     color = positive_color if sentiment == "Positive" else negative_color
     
-    # Näytä tulos värillä
+    # Display the result in color
     st.write(f"Input: {user_input} - Sentiment: <span style='color:{color}'>{sentiment}</span>", unsafe_allow_html=True)
